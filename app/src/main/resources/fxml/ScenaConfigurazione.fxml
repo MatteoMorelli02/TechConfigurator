@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!-- Questo Pane è il contenitore principale per gli elementi dell'interfaccia utente -->
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="519.0"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mgc.TechConfigurator.view.ScenaConfiguratoreController">
+
+   <children>
+      <!-- ListView permette di visualizzare una lista di elementi selezionabili -->
+      <!-- fx:id="listView" è l'elemento che permette l'interazione con questo ListView nel controller -->
+      <ListView fx:id="listView" layoutX="132.0" layoutY="97.0"
+                prefHeight="206.0" prefWidth="257.0" />
+
+      <!-- TextField utilizzato come etichetta per visualizzare un titolo o una descrizione -->
+      <!-- fx:id="titleLabel" consente al controller di impostare il testo di questo campo -->
+      <!-- editable="false" specifica che l'utente non potrà modificare questo valore-->
+      <TextField fx:id="titleLabel" layoutX="132.0" layoutY="35.0"
+                 prefWidth="257.0" editable="false" />
+
+      <!-- Bottone per procedere allo step successivo, con il testo "AVANTI" -->
+      <!-- fx:id="bottoneNext" collega questo bottone al controller per la gestione delle azioni -->
+      <Button fx:id="bottoneNext" layoutX="207.0" layoutY="328.0"
+              mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="AVANTI">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

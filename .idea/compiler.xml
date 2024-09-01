@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="21">
+      <module name="it.unicam.cs.mpmgc.test.app" target="21" />
+      <module name="it.unicam.cs.mpmgc.test.app.main" target="21" />
+      <module name="it.unicam.cs.mpmgc.test.app.test" target="21" />
+      <module name="it.unicam.cs.mpmgc.test.buildSrc" target="21" />
+      <module name="it.unicam.cs.mpmgc.test.buildSrc.main" target="21" />
+      <module name="it.unicam.cs.mpmgc.test.buildSrc.test" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

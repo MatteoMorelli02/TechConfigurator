@@ -1,0 +1,1367 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.unicam.it/cs/matteomorelli/tech-configurator#"
+     xml:base="http://www.unicam.it/cs/matteomorelli/tech-configurator"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:tc="https://www.unicam.it/cs/matteomorelli/tech-configurator#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator">
+        <dc:creator>Matteo Morelli</dc:creator>
+        <rdfs:comment>Questa Ontologia permette di configurare prodotti tecnologici a scelta dell&apos;utente</rdfs:comment>
+        <rdfs:label>Tech Configurator</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/desciption -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/desciption"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#ComputerHaComponenti -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#ComputerHaComponenti">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Computer"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer"/>
+        <rdfs:comment>Questa object property connette la classe computer con i suoi componenti, utile sottilineare che la sottoclasse portatile non ha la classe case come componente</rdfs:comment>
+        <rdfs:label>ComputerHaComponenti</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaConnessione -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaConnessione">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mouse"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Connessione"/>
+        <rdfs:comment>Questa object property specifica che tipo di connessione dovranno avere mouse e cuffie</rdfs:comment>
+        <rdfs:label>HaConnessione</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaRetroilluminazione -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaRetroilluminazione">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mouse"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Tastiera"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment>Questa object property connette le classi mouse e tastiera al loro tipo di retroilluminazione</rdfs:comment>
+        <rdfs:label>HaRetroilluminazione</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaRisoluzione -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaRisoluzione">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Monitor"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Risoluzione"/>
+        <rdfs:comment>HaRisoluzione</rdfs:comment>
+        <rdfs:comment>Questa proprietà specifica i tipi di risoluzione che un monitor può avere</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaTipoDiPannello -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaTipoDiPannello">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Monitor"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TipoPannello"/>
+        <rdfs:comment>Questa object property connette la classe monitor al suo tipo di pannello</rdfs:comment>
+        <rdfs:label>HaTipoDiPannello</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnColore -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnColore">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <rdfs:comment>Questa object property connette le sottoclassi della classe TechObject ai loro colori</rdfs:comment>
+        <rdfs:label>HaUnColore</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnMateriale -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnMateriale">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Materiale"/>
+        <rdfs:comment>Questa object property connette le sottoclassi della classe TechObject ai loro materiali</rdfs:comment>
+        <rdfs:label>HaUnMateriale</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:comment>Questa object property connette le sottoclassi della classe TechObject alle loro dimensioni, utile sottolineare che ogni sottoclasse è collegata alla sottoclasse relativa della classe dimensione e inoltre che la sottoclasse di computer ovvero la classe fisso ha come dimensione la dimensione della classe case</rdfs:comment>
+        <rdfs:label>HaUnaDimensione</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#MouseHaComponenti -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#MouseHaComponenti">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mouse"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMouse"/>
+        <rdfs:comment>Questa object property connette la classe mousecon i suoi componenti</rdfs:comment>
+        <rdfs:label>MouseHaComponenti</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaCodice -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaCodice">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa data property specifica dei codici esadecimali per ogni colore disponibile</rdfs:comment>
+        <rdfs:label>HaCodice</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaFrameRate -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaFrameRate">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa object property specifica la risoluzione di un monitor</rdfs:comment>
+        <rdfs:label>HaFrameRate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaGenerazione -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaGenerazione">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa data property specifica la generazione di una data memoria ram di un computer</rdfs:comment>
+        <rdfs:label>HaGenerazione</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaMaxDPI -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaMaxDPI">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>Questa data property specifica il numero massimo di DPI che una categoria di mouse può avere</rdfs:comment>
+        <rdfs:label>HaMaxDPI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaMinDPI -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaMinDPI">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>Questa data property specifica il numero minimo di DPI che una categoria di mouse può avere</rdfs:comment>
+        <rdfs:label>HaMinDPI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaMisura -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaMisura">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa Data Properties definisce le misure dei vari TechObjects</rdfs:comment>
+        <rdfs:label>HaMisura</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaPeso -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaPeso">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa Data Property definisce il peso dei vari TechObjects</rdfs:comment>
+        <rdfs:label>HaPeso</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaVelocità -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaVelocità">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa data property specifica il tipo di velocità di una determinata ram di un computer</rdfs:comment>
+        <rdfs:label>HaVelocità</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaVram -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaVram">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#SchedaGrafica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Questa Data Property specifica il valore della Vram di una scheda grafica</rdfs:comment>
+        <rdfs:label>HaVram</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Bluetooth -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Bluetooth">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Connessione"/>
+        <rdfs:comment>Questa classe specifica che mouse o tastiera vengono utilizzati tramite bluetooth</rdfs:comment>
+        <rdfs:label>Bluetooth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#CaratteristicheGenerali -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#CaratteristicheGenerali">
+        <rdfs:comment>Questa classe specifica le caratteristiche condivise da tutte i TechObject, ovvero colore,materiale, dimensione.</rdfs:comment>
+        <rdfs:label>CaratteristicheGenerali</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Case -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Case">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Computer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile"/>
+        <rdfs:comment>Questa classe specifica un computer di tipo fisso ovvero composto da un Case</rdfs:comment>
+        <rdfs:label>Case</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#CaratteristicheGenerali"/>
+        <rdfs:comment>Questa classe permette di definire il tipo di colore che potranno avere i vari oggetti</rdfs:comment>
+        <rdfs:label>Colore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#ColoreSingolo -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#ColoreSingolo">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Retroilluminazione"/>
+        <rdfs:comment>Questa sottoclasse della classe Retroilluminazione stabilisce che quest&apos;ultima debba essere di un singolo colore (Il colore sarà uguale a quello scelto per il mouse o la tastiera).</rdfs:comment>
+        <rdfs:label>ColoreSingolo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#ComponentiTecniche -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#ComponentiTecniche">
+        <rdfs:comment>Questa classe specifica le componenti tecniche relative soprattutto alle classi computer e Mouse</rdfs:comment>
+        <rdfs:label>ComponentiTecniche</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Computer -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Computer">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:comment>Questa classe specifica l&apos;oggetto computer</rdfs:comment>
+        <rdfs:label>Computer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#ConFilo -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#ConFilo">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Connessione"/>
+        <rdfs:comment>Questa classe specifica che mouse e tastiera vengono utilizzati tramite filo</rdfs:comment>
+        <rdfs:label>ConFilo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Connessione -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Connessione">
+        <rdfs:comment>Questa classe specifica come si connettono mouse e Cuffie</rdfs:comment>
+        <rdfs:label>Connessione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Questa classe specifica l&apos;oggetto cuffie</rdfs:comment>
+        <rdfs:label>Cuffie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMouse"/>
+        <rdfs:comment>Questa classe definisce il numero di DPI che avrà il mouse</rdfs:comment>
+        <rdfs:label>DPI</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#CaratteristicheGenerali"/>
+        <rdfs:comment>Questa classe specifica le dimensioni che possono avere i vari oggetti</rdfs:comment>
+        <rdfs:label>Dimensione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:comment>Questa classe specifica la dimensione specifica del case</rdfs:comment>
+        <rdfs:label>DimensioneCase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:comment>Questa classe specifica la dimensione specifica delle cuffie</rdfs:comment>
+        <rdfs:label>DimensioneCuffie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:comment>Questa classe specifica la dimensione specifica del monitor</rdfs:comment>
+        <rdfs:label>DimensioneMonitor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:comment>Questa classe specifica la dimensione specifica del mouse</rdfs:comment>
+        <rdfs:label>DimensioneMouse</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:comment>Questa classe specifica la dimensione di un computer di tipo portatile</rdfs:comment>
+        <rdfs:label>DimensionePortatile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Dimensione"/>
+        <rdfs:comment>Questa classe specifica la dimensione specifica della tastiera</rdfs:comment>
+        <rdfs:label>DimensioneTastiera</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#DiscoRigido -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#DiscoRigido">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer"/>
+        <rdfs:comment>Questa classe specifica che dimensione avrà il disco rigido del computer</rdfs:comment>
+        <rdfs:label>DiscoRigido</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Materiale -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Materiale">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#CaratteristicheGenerali"/>
+        <rdfs:comment>Questa classe specifica i vari materiali con cui possono essere composti i vati oggetti</rdfs:comment>
+        <rdfs:label>Materiale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Meccanica -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Meccanica">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerTastiera"/>
+        <owl:disjointWith rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Membrana"/>
+        <rdfs:comment>Questa classe specifica una tastiera di tipo a membrana</rdfs:comment>
+        <rdfs:label>Meccanica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Membrana -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Membrana">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerTastiera"/>
+        <rdfs:comment>Questa classe specifica una tastiera di tipo a membrana</rdfs:comment>
+        <rdfs:label>Membrana</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer"/>
+        <rdfs:comment>Questa classe definisce la dimensione della RAM che avrà il computer</rdfs:comment>
+        <rdfs:label>MemoriaRAM</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Monitor -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Monitor">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Questa classe specifica l&apos;oggetto monitor</rdfs:comment>
+        <rdfs:label>Monitor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Mouse -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mouse">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Questa classe specifica l&apos;oggetto mouse</rdfs:comment>
+        <rdfs:label>Mouse</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#NumeroPulsantiProgrammabili -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#NumeroPulsantiProgrammabili">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMouse"/>
+        <rdfs:comment>Questa classe specifica il numero di pulsanti programmabili che un mouse può avere</rdfs:comment>
+        <rdfs:label>NumeroPulsantiProgrammabili</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#ComponentiTecniche"/>
+        <rdfs:comment>Questa classe specifica le varie componenti presenti nella configurazione di un computer</rdfs:comment>
+        <rdfs:label>PerComputer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMonitor -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMonitor">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#ComponentiTecniche"/>
+        <rdfs:comment>Questa classe specifica le varie componenti presenti nella configurazione di un monitor</rdfs:comment>
+        <rdfs:label>PerMonitor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMouse -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMouse">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#ComponentiTecniche"/>
+        <rdfs:comment>Questa classe specifica le varie componenti presenti nella configurazione di un mouse</rdfs:comment>
+        <rdfs:label>PerMouse</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#PerTastiera -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerTastiera">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#ComponentiTecniche"/>
+        <rdfs:comment>Questa classe specifica le varie componenti presenti nella configurazione della tastiera</rdfs:comment>
+        <rdfs:label>PerTastiera</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Computer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Questa classe specifica un computer di tipo portatile</rdfs:comment>
+        <rdfs:label>Portatile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer"/>
+        <rdfs:comment>Questa classe specifica il tipo di processore (marca e generazione) che il computer dovrà avere</rdfs:comment>
+        <rdfs:label>Processore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#RGB -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#RGB">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Retroilluminazione"/>
+        <rdfs:comment>Questa sottoclasse della classe Retroilluminazione stabilisce che quest&apos;ultima debba essere RGB, ovvero essere multicolore</rdfs:comment>
+        <rdfs:label>RGB</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Retroilluminazione -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Retroilluminazione">
+        <rdfs:comment>Questa classe specifica i tipi di retroilluminazione che posso essere forniti a mouse o tastiera</rdfs:comment>
+        <rdfs:label>Retroilluminazione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Risoluzione -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Risoluzione">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMonitor"/>
+        <rdfs:comment>Questa classe permette di specificare il tipo di risoluzione del monitor</rdfs:comment>
+        <rdfs:label>Risoluzione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#SchedaGrafica -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#SchedaGrafica">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerComputer"/>
+        <rdfs:comment>Questa classe specifica che tipo di scheda grafica dovrà avere il computer</rdfs:comment>
+        <rdfs:label>SchedaGrafica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Tastiera -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Tastiera">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
+                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Questa classe specifica l&apos;oggetto tastiera</rdfs:comment>
+        <rdfs:label>Tastiera</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#TechObject">
+        <rdfs:comment>Questa classe specifica tutti i vari oggetti che possono essere configurati dall&apos;utente</rdfs:comment>
+        <rdfs:label>TechObject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#TipoPannello -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#TipoPannello">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#PerMonitor"/>
+        <rdfs:comment>Questa classe permette di specificare che tipo di pannello avrà il monitor</rdfs:comment>
+        <rdfs:label>TipoPannello</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#SchedaGrafica"/>
+        <tc:HaVram>16GB</tc:HaVram>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di scheda grafica che il computer può avere</rdfs:comment>
+        <rdfs:label>AMD</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_3 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_3">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>AMD Ryzen 3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_5 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_5">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>AMD Ryzen 5</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_7 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_7">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>AMD Ryzen 7</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_9 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#AMD_Ryzen_9">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>AMD Ryzen 9</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Acciaio -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Acciaio">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Materiale"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di materiale che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Acciaio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Alluminio -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Alluminio">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Materiale"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di materiale che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Alluminio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Bianco -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Bianco">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <tc:HaCodice>#FFFFFF</tc:HaCodice>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di colore che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Bianco</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Blu -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Blu">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <tc:HaCodice>#0000FF</tc:HaCodice>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di colore che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Blu</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Compatto -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Compatto">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
+        <tc:HaMisura>Altezza: 8cm
+Larghezza: 5cm
+Lunghezza: 3cm</tc:HaMisura>
+        <tc:HaPeso>65g</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che il mouse può avere</rdfs:comment>
+        <rdfs:label>Compatto</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie_In_Ear -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie_In_Ear">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie"/>
+        <tc:HaPeso>10g</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che le cuffie possono avere</rdfs:comment>
+        <rdfs:label>Cuffie In Ear</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie_Over_Ear -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie_Over_Ear">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie"/>
+        <tc:HaPeso>300g</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che le cuffie possono avere</rdfs:comment>
+        <rdfs:label>Cuffie Over Ear</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Da_Gaming -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Da_Gaming">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
+        <tc:HaMisura>Altezza: 12cm
+Largezza: 6,5cm
+Lunghezza: 4cm</tc:HaMisura>
+        <tc:HaPeso>120g</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che il mouse può avere</rdfs:comment>
+        <rdfs:label>Da Gaming</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Full_HD -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Full_HD">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Risoluzione"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di risoluzione che un monitor può avere</rdfs:comment>
+        <rdfs:label>Full HD</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Full_Size -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Full_Size">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera"/>
+        <tc:HaMisura>Larghezza: 45cm
+Altezza: 13cm</tc:HaMisura>
+        <tc:HaPeso>800g</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che può avere la tastiera</rdfs:comment>
+        <rdfs:label>Full Size</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Grande -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Grande">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
+        <tc:HaMisura>32 pollici</tc:HaMisura>
+        <tc:HaPeso>10kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che il monitor può avere</rdfs:comment>
+        <rdfs:label>Grande</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Grigio -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Grigio">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <tc:HaCodice>#808080</tc:HaCodice>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di colore che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Grigio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HighDPI -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HighDPI">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI"/>
+        <tc:HaMaxDPI rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3200</tc:HaMaxDPI>
+        <tc:HaMinDPI rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1600</tc:HaMinDPI>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione per i DPI che una classe mouse può avere</rdfs:comment>
+        <rdfs:label>HighDPI</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#IPS -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#IPS">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TipoPannello"/>
+        <tc:HaFrameRate>120Hz</tc:HaFrameRate>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di pannello che il monitor può avere</rdfs:comment>
+        <rdfs:label>IPS</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i3 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i3">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>Intel i3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i5 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i5">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>Intel i5</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i7 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i7">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>Intel i7</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i9 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Intel_i9">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Processore"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di processore che il computer può avere</rdfs:comment>
+        <rdfs:label>Intel i9</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#LowDPI -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#LowDPI">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI"/>
+        <tc:HaMaxDPI rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">800</tc:HaMaxDPI>
+        <tc:HaMinDPI rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100</tc:HaMinDPI>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione per i DPI che una classe mouse può avere</rdfs:comment>
+        <rdfs:label>LowDPI</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Medio -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Medio">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
+        <tc:HaMisura>27 pollici</tc:HaMisura>
+        <tc:HaPeso>6kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che il monitor può avere</rdfs:comment>
+        <rdfs:label>Medio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#MediumDPI -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#MediumDPI">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DPI"/>
+        <tc:HaMaxDPI rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1600</tc:HaMaxDPI>
+        <tc:HaMinDPI rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">800</tc:HaMinDPI>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione per i DPI che una classe mouse può avere</rdfs:comment>
+        <rdfs:label>MediumDPI</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Mid_Tower -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mid_Tower">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
+        <tc:HaMisura>Altezza: 45cm
+Larghezza: 20cm
+Lunghezza 45cm</tc:HaMisura>
+        <tc:HaPeso>8kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di dimensione che può avere il case di un computer fisso</rdfs:comment>
+        <rdfs:label>Mid Tower</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Mini_Tower -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mini_Tower">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
+        <tc:HaMisura>Altezza: 30cm
+Larghezza: 15cm
+Lunghezza: 35cm</tc:HaMisura>
+        <tc:HaPeso>5kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di dimensione che può avere il case di un computer fisso</rdfs:comment>
+        <rdfs:label>Mini Tower</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#NVIDIA -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#NVIDIA">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#SchedaGrafica"/>
+        <tc:HaVram>10GB</tc:HaVram>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di scheda grafica che il computer può avere</rdfs:comment>
+        <rdfs:label>NVIDIA</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Nero -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Nero">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <tc:HaCodice>#000000</tc:HaCodice>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di colore che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Nero</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#OLED -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#OLED">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#TipoPannello"/>
+        <tc:HaFrameRate>144Hz</tc:HaFrameRate>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di pannello che il monitor può avere</rdfs:comment>
+        <rdfs:label>OLED</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Piccolo -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Piccolo">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
+        <tc:HaMisura>24 pollici</tc:HaMisura>
+        <tc:HaPeso>3kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che il monitor può avere</rdfs:comment>
+        <rdfs:label>Piccolo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Plastica -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Plastica">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Materiale"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di materiale che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Plastica</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile_Standard -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile_Standard">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
+        <tc:HaMisura>15 pollici</tc:HaMisura>
+        <tc:HaPeso>2kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di dimensione che può avere un computer di tipo portatile</rdfs:comment>
+        <rdfs:label>Portatile Standard</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile_da_gaming -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile_da_gaming">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
+        <tc:HaMisura>17 pollici</tc:HaMisura>
+        <tc:HaPeso>3,5kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di dimensione che può avere un computer di tipo portatile</rdfs:comment>
+        <rdfs:label>Portatile da Gaming</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Rosso -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Rosso">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <tc:HaCodice>#FF0000</tc:HaCodice>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di colore che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Rosso</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Standard -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Standard">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
+        <tc:HaMisura>Altezza: 11cm
+Larghezza: 6cm
+Lunghezza: 3,5cm</tc:HaMisura>
+        <tc:HaPeso>80</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che il mouse può avere</rdfs:comment>
+        <rdfs:label>Standard</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#TenKeyLess -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#TenKeyLess">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera"/>
+        <tc:HaMisura>Larghezza: 37cm
+Altezza: 14cm</tc:HaMisura>
+        <tc:HaPeso>600g</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di dimensione che può avere la tastiera</rdfs:comment>
+        <rdfs:label>TenKeyLess</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Tower -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Tower">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
+        <tc:HaMisura>Altezza: 55cm
+Largezza: 25cm
+Lunghezza: 55cm</tc:HaMisura>
+        <tc:HaPeso>15kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di dimensione che può avere il case di un computer fisso</rdfs:comment>
+        <rdfs:label>Tower</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Ultra_portatili -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Ultra_portatili">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
+        <tc:HaMisura>13 pollici</tc:HaMisura>
+        <tc:HaPeso>1kg</tc:HaPeso>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di tipo di dimensione che può avere un computer di tipo portatile</rdfs:comment>
+        <rdfs:label>Ultra portatili</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#Verde -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Verde">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Colore"/>
+        <tc:HaCodice>#00FF00</tc:HaCodice>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di colore che i TechObjects possono avere</rdfs:comment>
+        <rdfs:label>Verde</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#1TB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#1TB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DiscoRigido"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione del disco rigido che un computer può avere</rdfs:comment>
+        <rdfs:label>1TB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#16GB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#16GB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM"/>
+        <tc:HaVelocità>Tra 2400MHz e 3600MHz</tc:HaVelocità>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di memoria RAM che il computer può avere</rdfs:comment>
+        <rdfs:label>16GB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#2TB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#2TB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DiscoRigido"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione del disco rigido che un computer può avere</rdfs:comment>
+        <rdfs:label>2TB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#2_pulsanti -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#2_pulsanti">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#NumeroPulsantiProgrammabili"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di pulsanti programmabili che il mouse può avere</rdfs:comment>
+        <rdfs:label>2 pulsanti</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#250GB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#250GB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DiscoRigido"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione del disco rigido che un computer può avere</rdfs:comment>
+        <rdfs:label>250GB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#32GB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#32GB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM"/>
+        <tc:HaVelocità>Tra 2666MHz e 4000MHz</tc:HaVelocità>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di memoria RAM che il computer può avere</rdfs:comment>
+        <rdfs:label>32GB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#4K -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#4K">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Risoluzione"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di risoluzione che un monitor può avere</rdfs:comment>
+        <rdfs:label>4K</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#4_pulsanti -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#4_pulsanti">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#NumeroPulsantiProgrammabili"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di pulsanti programmabili che il mouse può avere</rdfs:comment>
+        <rdfs:label>4 pulsanti</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#500GB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#500GB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DiscoRigido"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione del disco rigido che un computer può avere</rdfs:comment>
+        <rdfs:label>500GB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#6_pulsanti -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#6_pulsanti">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#NumeroPulsantiProgrammabili"/>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di pulsanti programmabili che il mouse può avere</rdfs:comment>
+        <rdfs:label>6 pulsanti</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#8GB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#8GB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#MemoriaRAM"/>
+        <tc:HaVelocità>Tra 2133MHz e 3200MHz</tc:HaVelocità>
+        <rdfs:comment>Ques&apos;istanza rappresente un&apos;opzione di memoria RAM che il computer può avere</rdfs:comment>
+        <rdfs:label>8GB</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Computer"/>
+            <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Cuffie"/>
+            <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Monitor"/>
+            <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Mouse"/>
+            <rdf:Description rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#Tastiera"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

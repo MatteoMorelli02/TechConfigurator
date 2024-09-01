@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = 'it.unicam.cs.mgc.TechConfigurator'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-simple:2.0.0'
+    implementation 'org.apache.commons:commons-text:1.10.0'
+    implementation 'org.openjfx:javafx-controls:21'
+    implementation 'org.openjfx:javafx-fxml:21'
+    implementation group: 'org.apache.jena', name: 'jena-arq', version: '4.8.0'
+    implementation group: 'com.github.galigator.openllet', name: 'openllet-jena', version: '2.6.5'
+    implementation group: 'com.github.galigator.openllet', name: 'openllet-owlapi', version: '2.6.5'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'it.unicam.cs.mgc.TechConfigurator.App'
+}
+
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+test {
+    useJUnitPlatform()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}

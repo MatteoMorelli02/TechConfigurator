@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Questo Pane è il contenitore principale per gli elementi dell'interfaccia utente -->
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mgc.TechConfigurator.view.ScenaFinaleController">
+
+   <children>
+      <!-- VBox permette di mostrare gli elementi in colonna con una determinata spaziatura -->
+      <!-- alignment="CENTER" serve per centrare il contenuto orizzontalmente -->
+      <!-- spacing="20.0" definisce lo spazio tra gli elementi all'interno del VBox -->
+      <VBox alignment="CENTER" layoutX="74.0" layoutY="20.0" prefHeight="360.0" prefWidth="371.0" spacing="20.0">
+         <children>
+
+            <!-- Label che mostra il titolo in alto al centro -->
+            <Label text="Riepilogo Configurazione" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <!-- TableView in cui vengono visualizzate le selezioni fatte dall'utente -->
+            <!-- Il TableView contiene due colonne: "CATEGORIA" e "SELEZIONE" -->
+            <TableView fx:id="tabella" prefHeight="206.0" prefWidth="371.0">
+               <columns>
+                  <!-- Prima colonna per le categorie delle selezioni -->
+                  <!-- fx:id="colonnaCategoria" permette di identificare
+                  e interagire con questa colonna nel controller -->
+                  <TableColumn fx:id="colonnaCategoria" text="CATEGORIA" prefWidth="185.5"/>
+
+                  <!-- Seconda colonna per le selezioni fatte dall'utente -->
+                  <!-- fx:id="colonnaSelezione" permette di identificare e
+                  interagire con questa colonna nel controller -->
+                  <TableColumn fx:id="colonnaSelezione" text="SELEZIONE" prefWidth="185.5"/>
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</Pane>
