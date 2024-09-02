@@ -22,9 +22,9 @@ public class PropertiesFormatterTest {
 
     @Test
     public void testConvertCamelCaseToSpaced(){
-        String test = "DiscoRigido";
+        String test = "MemoriaRAM";
         String result = PropertiesFormatter.convertCamelCaseToSpaced(test);
-        assertEquals("disco rigido", result);
+        assertEquals("Memoria RAM", result);
     }
 
     @Test

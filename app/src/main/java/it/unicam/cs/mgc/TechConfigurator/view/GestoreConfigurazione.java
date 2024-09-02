@@ -80,6 +80,9 @@ public class GestoreConfigurazione {
      * @return un EventHandler<ActionEvent> per gestire il clic del pulsante
      */
     private EventHandler<ActionEvent> creaAzioneBottone(ScenaConfiguratoreController controller) {
-        return controller::configurationButton;
+        return event -> controller.configurationButton(event);
     }
+
+
+
 }

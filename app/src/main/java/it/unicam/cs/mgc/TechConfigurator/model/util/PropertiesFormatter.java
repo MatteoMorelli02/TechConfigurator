@@ -34,6 +34,8 @@ public class PropertiesFormatter {
 
     /**
      * Converte una stringa in formato camelCase in una stringa con parole separate da spazi.
+     * E rende maiuscole le lettere di ogni parola, ma se la parola ha più lettere maiuscole
+     * consecutive queste non vengono separeate
      * @param camelCase la stringa nel formato camel case.
      * @return la stringa con gli spazi.
      */
@@ -41,15 +43,24 @@ public class PropertiesFormatter {
         StringBuilder spacedString = new StringBuilder();
         for (int i = 0; i < camelCase.length(); i++) {
             char currentChar = camelCase.charAt(i);
+
+            // Controlla se il carattere attuale è maiuscolo
             if (Character.isUpperCase(currentChar)) {
-                if (i > 0) spacedString.append(' ');
-                spacedString.append(Character.toLowerCase(currentChar));
+                // Aggiungi spazio se:
+                // - Non è il primo carattere
+                // - Il carattere precedente non è maiuscolo
+                // - Il carattere precedente non è uno spazio
+                if (i > 0 && !Character.isUpperCase(camelCase.charAt(i - 1))) {
+                    spacedString.append(' ');
+                }
+                spacedString.append(currentChar);
             } else {
                 spacedString.append(currentChar);
             }
         }
         return spacedString.toString();
     }
+
 
     public static String upperCaseFirstLetter(String string) {
         return string.substring(0, 1).toUpperCase() + string.substring(1);
