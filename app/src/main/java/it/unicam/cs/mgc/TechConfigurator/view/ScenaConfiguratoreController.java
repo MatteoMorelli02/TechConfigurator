@@ -2,17 +2,28 @@ package it.unicam.cs.mgc.TechConfigurator.view;
 
 import it.unicam.cs.mgc.TechConfigurator.controller.Controller;
 import it.unicam.cs.mgc.TechConfigurator.model.ParsedData;
+import it.unicam.cs.mgc.TechConfigurator.model.util.PropertiesFormatter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.event.ActionEvent;
-
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * Questa classe rappresenta il controller della scena di configurazione nell'applicazione "Tech Configurator".
@@ -32,22 +43,24 @@ public class ScenaConfiguratoreController {
 
     private final List<Consumer<ActionEvent>> actions = new ArrayList<>();
 
-    private int currentActionIndex = 0;
-
-    private GestoreConfigurazione gestoreConfigurazione = new GestoreConfigurazione();
-
-    private GestoreView gestoreView;
-
     // Lista delle selezioni effettuate dall'utente
     private final List<String> userSelections = new ArrayList<>();
 
-    // Bottone per procedere alla fase successiva della configurazione
+    private int currentActionIndex = 0;
+
+    private GestoreConfigurazione configurazioneManager = new GestoreConfigurazione();
+
+    // Testo per il titolo che descrive l'azione corrente
     @FXML
-    private Button bottoneNext;
+    private TextField titleLabel;
 
     // ListView per mostrare le opzioni disponibili per la configurazione
     @FXML
     private ListView<String> listView;
+
+    // Bottone per procedere alla fase successiva della configurazione
+    @FXML
+    private Button bottoneNext;
 
     /**
      * Imposta il controller dell'applicazione e inizializza la scena di configurazione.
@@ -55,17 +68,13 @@ public class ScenaConfiguratoreController {
     public void setAppController(Controller appController) {
         this.appController = appController;
         setupListViewListener();
-        Initialize();
-    }
-
-    public void setGestoreView(GestoreView gestoreView) {
-        this.gestoreView = gestoreView;
+        initialize();
     }
 
     /**
      * Questo metodo da il via alla configurazione caricando le opzioni iniziali e impostando le azioni successive.
      */
-    private void Initialize() {
+    private void initialize() {
         if (appController != null) {
             // Popola la ListView con i TechObject
             populateListView("TechObject");
@@ -76,21 +85,29 @@ public class ScenaConfiguratoreController {
         }
     }
 
-
     /**
      * Popola la ListView con le opzioni basate sul tipo di query fornito.
      */
     void populateListView(String query) {
         this.query = query;
-        gestoreView.setTitleLabel(query);
+        setTitleLabel(query);
         try {
             ParsedData parsedData = configura(query);
-            gestoreView.populateListViewWithItems(parsedData.getAllValues());
+            populateListViewWithItems(parsedData.getAllValues());
             updateListView(); // Aggiorna la dimensione della ListView
         } catch (RuntimeException e) {
             e.printStackTrace();
             throw new RuntimeException("Errore durante l'invocazione del metodo: " + e.getMessage());
         }
+    }
+
+    /**
+     * Imposta il titolo della label in base alla query.
+     */
+    private void setTitleLabel(String query) {
+        String formattedTitle = "Seleziona " +
+                PropertiesFormatter.convertCamelCaseToSpaced(query);
+        titleLabel.setText(formattedTitle);
     }
 
     /**
@@ -129,6 +146,20 @@ public class ScenaConfiguratoreController {
     }
 
     /**
+     * Popola la ListView con gli elementi forniti, inserendo lo spazio e le maiuscole.
+     */
+    private void populateListViewWithItems(Collection<String> allValues) {
+        // Applica la formattazione a ciascun elemento della lista
+        List<String> formattedValues = allValues.stream()
+                .map(value -> PropertiesFormatter.convertCamelCaseToSpaced(value))
+                .collect(Collectors.toList());
+
+        // Crea una lista osservabile con i valori formattati
+        ObservableList<String> observableItems = FXCollections.observableArrayList(formattedValues);
+        listView.setItems(observableItems);
+    }
+
+    /**
      * Questo metodo permette di modificare la dimensione della listview in base
      * al numero di elementi al suo interno.
      */
@@ -164,7 +195,7 @@ public class ScenaConfiguratoreController {
     private void initializeButton(ActionEvent event) {
         if (selectedObject == null) {
             // Mostra un errore se nessuna opzione è selezionata
-            gestoreView.showError("Seleziona un'opzione prima di procedere.");
+            showError("Seleziona un'opzione prima di procedere.");
             return;
         }
         // Aggiunge la selezione corrente alla lista delle selezioni
@@ -177,11 +208,11 @@ public class ScenaConfiguratoreController {
             if (currentActionIndex >= actions.size()) {
                 // Se tutte le azioni sono completate, imposta il pulsante per applicare la configurazione
                 bottoneNext.setOnAction(e -> configurationButton(e)); // Lambda expression qui
-                gestoreConfigurazione.applicaConfigurazione(selectedTechObject, this);
+                configurazioneManager.applicaConfigurazione(selectedTechObject, this);
             }
         } else {
             // Applica la configurazione se tutte le azioni sono completate
-            gestoreConfigurazione.applicaConfigurazione(selectedTechObject, this);
+            configurazioneManager.applicaConfigurazione(selectedTechObject, this);
         }
         // Resetta l'oggetto selezionato
         selectedObject = null;
@@ -193,7 +224,7 @@ public class ScenaConfiguratoreController {
     void configurationButton(ActionEvent event) {
         if (selectedObject == null) {
             // Mostra un errore se nessuna opzione è selezionata
-            gestoreView.showError("Seleziona un'opzione prima di procedere.");
+            showError("Seleziona un'opzione prima di procedere.");
             return;
         }
         // Aggiunge la selezione corrente alla lista delle selezioni
@@ -205,10 +236,45 @@ public class ScenaConfiguratoreController {
             currentActionIndex++;
         } else {
             // Naviga alla scena finale se tutte le azioni sono completate
-            gestoreView.navigateToFinalScene();
+            navigateToFinalScene();
         }
         // Resetta l'oggetto selezionato
         selectedObject = null;
+    }
+
+    /**
+     * Carica alla scena finale con le selezioni dell'utente.
+     */
+    private void navigateToFinalScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ScenaFinale.fxml"));
+            Parent root = loader.load();
+
+            // Recupera il controller della scena finale e imposta le selezioni dell'utente
+            ScenaFinaleController finaleController = loader.getController();
+            finaleController.setUserSelections(userSelections);
+
+            // Mostra la scena finale nella finestra corrente
+            Stage stage = (Stage) bottoneNext.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showError("Errore nel caricamento della scena finale.");
+        }
+    }
+
+    /**
+     * Mostra un messaggio di errore all'utente.
+     *
+     * @param message il messaggio di errore da mostrare
+     */
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Errore");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     public List<Consumer<ActionEvent>> getActions() {

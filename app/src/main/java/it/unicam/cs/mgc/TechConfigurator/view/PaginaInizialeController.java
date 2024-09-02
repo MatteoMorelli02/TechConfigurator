@@ -3,6 +3,8 @@ package it.unicam.cs.mgc.TechConfigurator.view;
 import it.unicam.cs.mgc.TechConfigurator.controller.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +23,12 @@ public class PaginaInizialeController {
      */
     @FXML
     private Button bottoneStart;
+
+    @FXML
+    private TextField titleLabel;
+    @FXML
+    private ListView<String> listView;
+
 
     private Controller appController;
     public PaginaInizialeController() {}
@@ -48,7 +56,6 @@ public class PaginaInizialeController {
 
             // Ottiene il controller associato alla nuova scena di configurazione
             ScenaConfiguratoreController configuratorController = loader.getController();
-
             // Passa il controller principale al nuovo controller
             configuratorController.setAppController(appController);
 

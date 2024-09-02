@@ -155,5 +155,6 @@ public class ScenaFinaleController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+
     }
 }
