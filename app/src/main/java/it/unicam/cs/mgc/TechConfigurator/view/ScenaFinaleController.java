@@ -102,7 +102,7 @@ public class ScenaFinaleController {
      */
     public void setUserSelections(List<String> userSelections) {
         if (userSelections == null || userSelections.isEmpty()) {
-            configuratoreController.showError("Nessuna selezione effettuata.");
+            showError("Nessuna selezione effettuata.");
             return;
         }
         String selectedTechObject = userSelections.get(0);
@@ -118,6 +118,19 @@ public class ScenaFinaleController {
             observableSelections.add(new SelectionItem(categoria, userSelections.get(i)));
         }
         tabella.setItems(observableSelections);
+    }
+
+    /**
+     * Mostra un messaggio di errore all'utente.
+     *
+     * @param message il messaggio di errore da mostrare
+     */
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Errore");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 
