@@ -97,6 +97,13 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaRetroilluminazione"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Retroilluminazione"/>
+            </owl:Restriction>
+        </rdfs:range>
         <rdfs:comment>Questa object property connette le classi mouse e tastiera al loro tipo di retroilluminazione</rdfs:comment>
         <rdfs:label>HaRetroilluminazione</rdfs:label>
     </owl:ObjectProperty>
@@ -229,6 +236,7 @@
     <!-- https://www.unicam.it/cs/matteomorelli/tech-configurator#HaFrameRate -->
 
     <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaFrameRate">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Risoluzione"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>Questa object property specifica la risoluzione di un monitor</rdfs:comment>
         <rdfs:label>HaFrameRate</rdfs:label>
@@ -350,7 +358,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
-                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCase"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#Portatile"/>
@@ -425,7 +434,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
-                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneCuffie"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Questa classe specifica l&apos;oggetto cuffie</rdfs:comment>
@@ -572,7 +582,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
-                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMonitor"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Questa classe specifica l&apos;oggetto monitor</rdfs:comment>
@@ -588,7 +599,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
-                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneMouse"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Questa classe specifica l&apos;oggetto mouse</rdfs:comment>
@@ -654,7 +666,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
-                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensionePortatile"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Questa classe specifica un computer di tipo portatile</rdfs:comment>
@@ -719,7 +732,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#HaUnaDimensione"/>
-                <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/matteomorelli/tech-configurator#DimensioneTastiera"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Questa classe specifica l&apos;oggetto tastiera</rdfs:comment>
