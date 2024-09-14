@@ -15,13 +15,10 @@
       <!-- fx:id="listView" è l'elemento che permette l'interazione con questo ListView nel controller -->
       <ListView fx:id="listView" layoutX="132.0" layoutY="97.0"
                 prefHeight="206.0" prefWidth="257.0" />
-
       <!-- TextField utilizzato come etichetta per visualizzare un titolo o una descrizione -->
       <!-- fx:id="titleLabel" consente al controller di impostare il testo di questo campo -->
-      <!-- editable="false" specifica che l'utente non potrà modificare questo valore-->
       <TextField fx:id="titleLabel" layoutX="132.0" layoutY="35.0"
                  prefWidth="257.0" editable="false" />
-
       <!-- Bottone per procedere allo step successivo, con il testo "AVANTI" -->
       <!-- fx:id="bottoneNext" collega questo bottone al controller per la gestione delle azioni -->
       <Button fx:id="bottoneNext" layoutX="207.0" layoutY="328.0"

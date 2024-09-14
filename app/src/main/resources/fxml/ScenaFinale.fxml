@@ -9,15 +9,9 @@
       fx:controller="it.unicam.cs.mgc.TechConfigurator.view.ScenaFinaleController">
 
    <children>
-      <!-- VBox permette di mostrare gli elementi in colonna con una determinata spaziatura -->
-      <!-- alignment="CENTER" serve per centrare il contenuto orizzontalmente -->
-      <!-- spacing="20.0" definisce lo spazio tra gli elementi all'interno del VBox -->
       <VBox alignment="CENTER" layoutX="74.0" layoutY="20.0" prefHeight="360.0" prefWidth="371.0" spacing="20.0">
          <children>
-
-            <!-- Label che mostra il titolo in alto al centro -->
             <Label text="Riepilogo Configurazione" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
-
             <!-- TableView in cui vengono visualizzate le selezioni fatte dall'utente -->
             <!-- Il TableView contiene due colonne: "CATEGORIA" e "SELEZIONE" -->
             <TableView fx:id="tabella" prefHeight="206.0" prefWidth="371.0">
@@ -26,7 +20,6 @@
                   <!-- fx:id="colonnaCategoria" permette di identificare
                   e interagire con questa colonna nel controller -->
                   <TableColumn fx:id="colonnaCategoria" text="CATEGORIA" prefWidth="185.5"/>
-
                   <!-- Seconda colonna per le selezioni fatte dall'utente -->
                   <!-- fx:id="colonnaSelezione" permette di identificare e
                   interagire con questa colonna nel controller -->

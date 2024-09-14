@@ -40,7 +40,8 @@ public class JSONParser implements DataParser {
      * Questo metodo converte un nodo RDF in una stringa.
      *
      * @param node il nodo RDF da convertire.
-     * @return una stringa che rappresenta il nodo. Una stringa vuota se il nodo è null o se non è ne una risorsa ne un literal.
+     * @return una stringa che rappresenta il nodo.
+     * Una stringa vuota se il nodo è null o se non è ne una risorsa ne un literal.
      */
     private String parseNodeToString(RDFNode node) {
         if(node == null) return "";

@@ -4,7 +4,6 @@ import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.util.FileManager;
-
 import java.net.URL;
 import java.util.Objects;
 
@@ -13,10 +12,6 @@ import java.util.Objects;
  */
 public class BasicOntologyBuilder implements OntologyBuilder {
 
-    /**
-     * FileManager è uno strumento fornito da Jena per gestire l'accesso ai file RDF.
-     * FileManager.getInternal() crea un gestore che utilizza solo risorse interne al progetto.
-     */
     private final FileManager fileManager = FileManager.getInternal();
 
     /**
@@ -30,8 +25,6 @@ public class BasicOntologyBuilder implements OntologyBuilder {
      * Questo metodo consente di creare un modello RDF di base.
      *
      * @param filenames file che possono essere caricato all'interno del modello RDF.
-     * getClass().getResource(filename) trova il file all’interno del classpath,
-     * assicurandosi che esista tramite Objects.requireNonNull.
      */
     public Model createBasicModel(String...filenames) {
         Model model = ModelFactory.createDefaultModel();

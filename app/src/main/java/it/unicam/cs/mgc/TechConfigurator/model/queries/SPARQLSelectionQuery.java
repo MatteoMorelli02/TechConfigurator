@@ -1,4 +1,5 @@
 package it.unicam.cs.mgc.TechConfigurator.model.queries;
+
 /**
  * Questa enumerazione è utilizzata per rappresentare una query SPARQL che seleziona dati dall'ontologia.
  */

@@ -14,23 +14,12 @@ public enum OntologyURI {
     LOCAL("/owl/tech-configurator.rdf");
 
 
-    /**
-     * Ogni costante dell'enumerazione ha un campo privato associato chiamato URI.
-     * Questo campo memorizza la stringa che rappresenta la URI.
-     */
     private final String URI;
 
-    /**
-     * Il costruttore dell'enumerazione accetta una stringa come argomento,
-     * che viene poi assegnata al campo URI.
-     */
     OntologyURI(String URI) {
         this.URI = URI;
     }
 
-    /**
-     * Questo metodo restituisce la stringa associata alla costante dell'enumerazione
-     */
     public String getURI() {
         return URI;
     }

@@ -31,34 +31,17 @@ import java.util.stream.Collectors;
 public class ScenaConfiguratoreController {
 
     private Controller appController;
-
-    // Rappresenta il tipo di query attuale
     private String query;
-
-    // Oggetto attualmente selezionato dall'utente
     private String selectedObject;
-
-    // Tipo di TechObject selezionato
     private String selectedTechObject;
-
     private final List<Consumer<ActionEvent>> actions = new ArrayList<>();
-
-    // Lista delle selezioni effettuate dall'utente
     private final List<String> userSelections = new ArrayList<>();
-
     private int currentActionIndex = 0;
-
     private GestoreConfigurazione configurazioneManager = new GestoreConfigurazione();
-
-    // Testo per il titolo che descrive l'azione corrente
     @FXML
     private TextField titleLabel;
-
-    // ListView per mostrare le opzioni disponibili per la configurazione
     @FXML
     private ListView<String> listView;
-
-    // Bottone per procedere alla fase successiva della configurazione
     @FXML
     private Button bottoneNext;
 
@@ -76,7 +59,6 @@ public class ScenaConfiguratoreController {
      */
     private void initialize() {
         if (appController != null) {
-            // Popola la ListView con i TechObject
             populateListView("TechObject");
             actions.add(event -> populateListView("Colori"));
             actions.add(event -> populateListView("Materiali"));
@@ -164,13 +146,9 @@ public class ScenaConfiguratoreController {
      * al numero di elementi al suo interno.
      */
     private void updateListView() {
-        // Altezza dell'elemento
         double itemHeight = 25.0;
-        // Numero di elementi nella ListView
         int numItems = listView.getItems().size();
-        // Calcola la nuova altezza
         double newHeight = Math.min(itemHeight * numItems, 400.0);
-        // Imposta la nuova altezza della ListView
         listView.setPrefHeight(newHeight);
     }
 
@@ -201,20 +179,15 @@ public class ScenaConfiguratoreController {
         // Aggiunge la selezione corrente alla lista delle selezioni
         userSelections.add(selectedObject);
         if (currentActionIndex < actions.size()) {
-            // Esegue l'azione corrente
             actions.get(currentActionIndex).accept(event);
-            // Incrementa l'indice dell'azione
             currentActionIndex++;
             if (currentActionIndex >= actions.size()) {
-                // Se tutte le azioni sono completate, imposta il pulsante per applicare la configurazione
                 bottoneNext.setOnAction(e -> configurationButton(e)); // Lambda expression qui
                 configurazioneManager.applicaConfigurazione(selectedTechObject, this);
             }
         } else {
-            // Applica la configurazione se tutte le azioni sono completate
             configurazioneManager.applicaConfigurazione(selectedTechObject, this);
         }
-        // Resetta l'oggetto selezionato
         selectedObject = null;
     }
 
@@ -223,22 +196,16 @@ public class ScenaConfiguratoreController {
      */
     void configurationButton(ActionEvent event) {
         if (selectedObject == null) {
-            // Mostra un errore se nessuna opzione è selezionata
             showError("Seleziona un'opzione prima di procedere.");
             return;
         }
-        // Aggiunge la selezione corrente alla lista delle selezioni
         userSelections.add(selectedObject);
         if (currentActionIndex < actions.size()) {
-            // Esegue l'azione corrente
             actions.get(currentActionIndex).accept(event);
-            // Incrementa l'indice dell'azione
             currentActionIndex++;
         } else {
-            // Naviga alla scena finale se tutte le azioni sono completate
             navigateToFinalScene();
         }
-        // Resetta l'oggetto selezionato
         selectedObject = null;
     }
 
@@ -249,12 +216,8 @@ public class ScenaConfiguratoreController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ScenaFinale.fxml"));
             Parent root = loader.load();
-
-            // Recupera il controller della scena finale e imposta le selezioni dell'utente
             ScenaFinaleController finaleController = loader.getController();
             finaleController.setUserSelections(userSelections);
-
-            // Mostra la scena finale nella finestra corrente
             Stage stage = (Stage) bottoneNext.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -269,7 +232,7 @@ public class ScenaConfiguratoreController {
      *
      * @param message il messaggio di errore da mostrare
      */
-    private void showError(String message) {
+    protected void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Errore");
         alert.setHeaderText(null);

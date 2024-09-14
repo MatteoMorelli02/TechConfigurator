@@ -9,7 +9,7 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.*;
 
 /**
- * Questa è progettata per gestire e interagire con un'ontologia RDF all'interno dell'applicazione.
+ * Questa classe è progettata per gestire e interagire con un'ontologia RDF all'interno dell'applicazione.
  */
 public class OntologyController {
 
@@ -18,7 +18,7 @@ public class OntologyController {
     private final OntologyQueryProcessor queryExecutor = new OntologyQueryProcessor();
 
     public OntologyController() {
-        this.model = modelBuilder.buildOntologyModel(OntModelSpec.OWL_DL_MEM,  OntologyURI.LOCAL.getURI());
+        this.model = modelBuilder.buildOntologyModel(OntModelSpec.OWL_DL_MEM, OntologyURI.LOCAL.getURI());
         this.startInference();
     }
 

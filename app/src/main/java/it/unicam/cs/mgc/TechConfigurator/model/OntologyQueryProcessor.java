@@ -21,7 +21,8 @@ public class OntologyQueryProcessor implements QueryProcessor {
     }
 
     /**
-     * Questo metodo esegue una query SPARQL sul modello RDF fornito, con argomenti aggiuntivi per la query.
+     * Questo metodo esegue una query SPARQL sul modello RDF fornito,
+     * con argomenti aggiuntivi per la query.
      */
     public QueryExecution perform(SparqlQuery query, Model model, Object...args) {
         Query queryToPerform = QueryFactory.create(query.getCompleteQuery(args));

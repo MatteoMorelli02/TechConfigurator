@@ -17,20 +17,14 @@ import javafx.scene.Scene;
  */
 public class PaginaInizialeController {
 
-    /**
-     * Riferimento al pulsante che è stato definito nel file FXML.
-     * Quando viene cliccato permette di avviare la configurazione.
-     */
     @FXML
     private Button bottoneStart;
-
     @FXML
     private TextField titleLabel;
     @FXML
     private ListView<String> listView;
-
-
     private Controller appController;
+
     public PaginaInizialeController() {}
 
     /**
@@ -44,22 +38,16 @@ public class PaginaInizialeController {
     }
 
     /**
-     * Gestisce l'evento per il clic del pulsante 'bottoneStart'.
+     * Gestisce l'evento del pulsante 'bottoneStart'.
      * Carica la scena di configurazione e cambia la scena corrente con quella nuova.
      */
     @FXML
     private void iniziaConfigurazione() {
         try {
-            // Carica il file FXML per la nuova scena di configurazione
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ScenaConfigurazione.fxml"));
             Parent configuratorRoot = loader.load();
-
-            // Ottiene il controller associato alla nuova scena di configurazione
-            ScenaConfiguratoreController configuratorController = loader.getController();
-            // Passa il controller principale al nuovo controller
-            configuratorController.setAppController(appController);
-
-            // Cambia la scena corrente con la nuova scena di configurazione
+            ScenaConfiguratoreController configuratoreController = loader.getController();
+            configuratoreController.setAppController(appController);
             Stage stage = (Stage) bottoneStart.getScene().getWindow();
             stage.setScene(new Scene(configuratorRoot));
         } catch (Exception e) {

@@ -1,8 +1,7 @@
 package it.unicam.cs.mgc.TechConfigurator.model.util;
 
-
 /**
- * Questa classe ontiene una serie di metodi statici utilizzati per formattare e pulire stringhe RDF.
+ * Questa classe contiene una serie di metodi statici utilizzati per formattare stringhe RDF.
  */
 public class PropertiesFormatter {
 
@@ -35,7 +34,8 @@ public class PropertiesFormatter {
     /**
      * Converte una stringa in formato camelCase in una stringa con parole separate da spazi.
      * E rende maiuscole le lettere di ogni parola, ma se la parola ha più lettere maiuscole
-     * consecutive queste non vengono separeate
+     * consecutive queste non vengono separate.
+     *
      * @param camelCase la stringa nel formato camel case.
      * @return la stringa con gli spazi.
      */
@@ -43,8 +43,6 @@ public class PropertiesFormatter {
         StringBuilder spacedString = new StringBuilder();
         for (int i = 0; i < camelCase.length(); i++) {
             char currentChar = camelCase.charAt(i);
-
-            // Controlla se il carattere attuale è maiuscolo
             if (Character.isUpperCase(currentChar)) {
                 // Aggiungi spazio se:
                 // - Non è il primo carattere
@@ -61,7 +59,9 @@ public class PropertiesFormatter {
         return spacedString.toString();
     }
 
-
+    /**
+     * Converte la prima lettera di una stringa in maiuscolo.
+     */
     public static String upperCaseFirstLetter(String string) {
         return string.substring(0, 1).toUpperCase() + string.substring(1);
     }

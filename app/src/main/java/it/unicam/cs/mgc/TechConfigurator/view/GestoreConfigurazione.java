@@ -7,19 +7,13 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 /**
- * Questa classe gestisce le configurazioni dei differenti tipi di Tec Object.
+ * Questa classe gestisce le configurazioni dei differenti tipi di Tech Object.
  * Imposta le azioni appropriate per il controller della scena di configurazione.
  */
 public class GestoreConfigurazione {
 
-    /**
-     * Mappa che permette di gestire le configurazioni per ogni tipi di Tech Object.
-     */
     private final Map<String, String[]> configurazioni = new HashMap<>();
 
-    /**
-     * Costruttore che inizializza le configurazioni predefinite per vari tipi di Tech Object.
-     */
     public GestoreConfigurazione() {
         configurazioni.put("Computer", new String[]{
                 "CategorieComputer", "Dimensioni", "DiscoRigido", "MemoriaRam", "Processore", "SchedaGrafica"
@@ -47,7 +41,6 @@ public class GestoreConfigurazione {
     public void applicaConfigurazione(String tipo, ScenaConfiguratoreController controller) {
         String[] items = configurazioni.get(tipo);
         if (items != null) {
-            // Pulisce le azioni precedenti e imposta le nuove azioni basate sulla configurazione.
             controller.getActions().clear();
             for (String item : items) {
                 controller.getActions().add(creaAzione(item, controller));
@@ -82,7 +75,4 @@ public class GestoreConfigurazione {
     private EventHandler<ActionEvent> creaAzioneBottone(ScenaConfiguratoreController controller) {
         return event -> controller.configurationButton(event);
     }
-
-
-
 }
